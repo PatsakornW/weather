@@ -7,7 +7,7 @@ import CardHightlight from '../components/cardHightlight'
 
 function Home() {
   return (
-    <div className='grid grid-cols-3 h-screen  auto-rows-max bg-slate-50'>
+    <div className='mx-5 sm:mx-0 grid grid-cols-3 h-screen  auto-rows-max bg-slate-50'>
       <div className=' order-1 col-span-3 sm:col-span-2  '>
         <Header />
       </div>

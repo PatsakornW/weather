@@ -70,7 +70,7 @@ function Forecast() {
 
 
     return (
-        <div className='flex-col rounded-xl  p-6 shadow-lg bg-white'>
+        <div className='flex-col rounded-2xl  p-6 shadow-lg bg-white'>
             <p className=' uppercase mb-5'>today's forecast</p>
             <Swiper
                 slidesPerView={4}

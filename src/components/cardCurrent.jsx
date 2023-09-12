@@ -44,7 +44,7 @@ function CardCurrent() {
 
 
     return (
-        <div class="w-full sm:w-80 bg-white shadow-xl p-6 rounded-2xl text-gray-700">
+        <div class="w-full sm:w-80 bg-white shadow-lg p-6 rounded-2xl text-gray-700">
             <div class="flex flex-col items-center">
                 <div>
                     <h2 class="font-bold text-gray-600 text-center">{current.name}    <span>({current.sys?.country}) </span></h2>
