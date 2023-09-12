@@ -1,16 +1,16 @@
 import React, { useContext } from 'react'
 import { WeatherContext } from '../context/weather'
-import wind from '../assets/002-wind.png'
-import hum from '../assets/003-humidity.png'
-import pre from '../assets/001-air.png'
-import rise from '../assets/005-sunrise.png'
-import set from '../assets/004-sunset.png'
-import visi from '../assets/vision.png'
+import wind from '../assets/icons8-wind-100.png'
+import hum from '../assets/icons8-moisture-100.png'
+import pre from '../assets/icons8-atmospheric-pressure-100.png'
+import rise from '../assets/icons8-sunrise-100.png'
+import set from '../assets/icons8-sunset-100.png'
+import visi from '../assets/icons8-eye-100.png'
 
 
 
 function CardHightlight() {
-    const { current } = useContext(WeatherContext)
+    const { current} = useContext(WeatherContext)
     function convertTimestampToTime(timestamp) {
         const date = new Date(timestamp * 1000);
         return date.toLocaleString("en-US", { hour: "numeric", minute: "numeric", hour12: true });
@@ -19,9 +19,9 @@ function CardHightlight() {
 
 
     return (
-        <div className='flex-col p-6 mb-10 bg-white rounded-2xl shadow-lg mt-8'>
+        <div className='flex-col p-6 mb-10 bg-white rounded-2xl shadow mt-8 border'>
             <p className=' uppercase mb-5'>today's hightlight</p>
-            <div className='grid grid-cols-3 gap-4'>
+            <div className='grid grid-cols-3 gap-10'>
                 <div className="flex  items-start space-x-4 col-span-3 sm:col-auto">
                     <img
                         src={wind}

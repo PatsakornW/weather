@@ -1,27 +1,17 @@
 import React, { useContext } from 'react'
 import { WeatherContext } from '../context/weather'
-import cloudy from '../assets/006-cloud.png'
-import thunder_storm from '../assets/010-thunderstorm.png'
-import drizzle from '../assets/008-light-rain.png'
-import rain from '../assets/009-hail.png'
+import cloudy from '../assets/icons8-clouds-96.png'
+import thunder_storm from '../assets/icons8-storm-100.png'
+import drizzle from '../assets/icons8-rain-100.png'
+import rain from '../assets/icons8-heavy-rain-100.png'
+import suuny from '../assets/icons8-sun-100.png'
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
-
-
-// import required modules
 import { Pagination } from 'swiper/modules';
 
-
-
-
-
 function Forecast() {
-    const { forecast } = useContext(WeatherContext)
-
-    console.log(forecast);
+    const { forecast, } = useContext(WeatherContext)
 
     function formatTime(dtTxt) {
         const date = new Date(dtTxt);
@@ -42,14 +32,16 @@ function Forecast() {
     const hours = 0;
     const minutes = 0;
     const seconds = 0;
+    // const currentDate = new Date(year, month, day, hours, minutes, seconds);
+    const currentDate = new Date();
+    const currentDateStr = `${currentDate.getFullYear()}-${(currentDate.getMonth() + 1)
+        .toString()
+        .padStart(2, '0')}-${currentDate.getDate().toString().padStart(2, '0')}`;
 
-    const currentDate = new Date(year, month, day, hours, minutes, seconds);
     const filteredList = forecast.list?.filter(item => {
-        const itemDate = new Date(item.dt * 1000);
-        return itemDate.getDate() === currentDate.getDate() &&
-            itemDate.getMonth() === currentDate.getMonth() &&
-            itemDate.getFullYear() === currentDate.getFullYear();
+        return item.dt_txt.includes(currentDateStr);
     });
+
 
 
 
@@ -61,6 +53,8 @@ function Forecast() {
                 return drizzle;
             case 'Clouds':
                 return cloudy;
+            case 'Sunny':
+                return suuny;
             case 'Thunderstorm':
                 return thunder_storm;
             default:
@@ -70,7 +64,7 @@ function Forecast() {
 
 
     return (
-        <div className='flex-col rounded-2xl  p-6 shadow-lg bg-white'>
+        <div className='flex-col rounded-2xl  p-6 shadow  bg-white border'>
             <p className=' uppercase mb-5'>today's forecast</p>
             <Swiper
                 slidesPerView={3}
@@ -100,6 +94,7 @@ function Forecast() {
                                 <p>{formatTime(item.dt_txt)}</p>
                                 {item.weather?.map((item) => (
                                     <img
+                                        key={item.id}
                                         src={getWeatherIcon(item.main)}
                                         alt={item.main}
                                         className='w-14 h-14'
@@ -118,7 +113,6 @@ function Forecast() {
 
 
 
-        // </div>
 
 
 
