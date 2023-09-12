@@ -1,18 +1,27 @@
 import React, { useContext } from 'react'
 import { WeatherContext } from '../context/weather'
-import cloudy from '../assets/cloudy.png'
-import thunder_rain from '../assets/thunder-rain.png'
-import rain from '../assets/rain.png'
-import rainbow from '../assets/rainy-rainbow.png'
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
+import cloudy from '../assets/006-cloud.png'
+import thunder_storm from '../assets/010-thunderstorm.png'
+import drizzle from '../assets/008-light-rain.png'
+import rain from '../assets/009-hail.png'
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+
+// import required modules
+import { Pagination } from 'swiper/modules';
+
 
 
 
 
 function Forecast() {
     const { forecast } = useContext(WeatherContext)
+
+    console.log(forecast);
 
     function formatTime(dtTxt) {
         const date = new Date(dtTxt);
@@ -29,7 +38,7 @@ function Forecast() {
 
     const year = 2023;
     const month = 8;
-    const day = 10;
+    const day = 13;
     const hours = 0;
     const minutes = 0;
     const seconds = 0;
@@ -42,83 +51,74 @@ function Forecast() {
             itemDate.getFullYear() === currentDate.getFullYear();
     });
 
-    console.log(filteredList);
+
 
     function getWeatherIcon(weatherMain) {
         switch (weatherMain) {
             case 'Rain':
                 return rain;
             case 'Drizzle	':
-                return rain;
+                return drizzle;
             case 'Clouds':
                 return cloudy;
             case 'Thunderstorm':
-                return thunder_rain;
-            case 'Clouds':
-                return rainbow;
+                return thunder_storm;
             default:
-                return rainbow;
+                return cloudy;
         }
     }
 
-    var settings = {
-      
-
-        infinite: true,
-        speed: 500,
-        slidesToShow: 8,
-        slidesToScroll: 8,
-        swipeToSlide: true,
-        
-
-
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 6,
-                    slidesToScroll: 1,
-                }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 5,
-                    slidesToScroll: 1,
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 5,
-                    slidesToScroll: 2
-                }
-            }
-        ]
-    };
 
     return (
+        <div className='flex-col rounded-xl  p-6 shadow-lg bg-white'>
+            <p className=' uppercase mb-5'>today's forecast</p>
+            <Swiper
+                slidesPerView={4}
+                spaceBetween={10}
 
-        <div className='container mx-10 w-[600px] sm:w-[700px] xl:w-[1000px]'>
-            <Slider {...settings} >
+                breakpoints={{
+                    640: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                    768: {
+                        slidesPerView: 4,
+                        spaceBetween: 40,
+                    },
+                    1024: {
+                        slidesPerView: 8,
+                        spaceBetween: 10,
+                    },
+                }}
+                modules={[Pagination]}
+                className="mySwiper"
+            >
                 {filteredList?.map((item) => (
-                    <div class="bg-slate-200  p-2 rounded-2xl border-2 border-gray-50">
-                        <div className='flex flex-col items-center justify-center '>
-                            <p>{formatTime(item.dt_txt)}</p>
-                            {item.weather?.map((item) => (
-                                <img
-                                    src={getWeatherIcon(item.main)}
-                                    alt={item.main}
-                                    className='w-20 h-20'
-                                />
-                            ))}
-                            <p className='text-xl font-bold'>{(item.main?.temp - 273.15).toFixed(0)}°C</p>
+                    <SwiperSlide>
+                        <div className=" border-e">
+                            <div className='flex flex-col gap-4 items-center justify-center text-gray-700'>
+                                <p>{formatTime(item.dt_txt)}</p>
+                                {item.weather?.map((item) => (
+                                    <img
+                                        src={getWeatherIcon(item.main)}
+                                        alt={item.main}
+                                        className='w-14 h-14'
+                                    />
+                                ))}
+                                <p className='text-xl font-bold'>{(item.main?.temp - 273.15).toFixed(0)}°C</p>
+                            </div>
                         </div>
-                    </div>
-                ))}
-            </Slider>
+                    </SwiperSlide>
 
+                ))}
+
+            </Swiper>
         </div>
+
+
+
+
+        // </div>
 
 
 

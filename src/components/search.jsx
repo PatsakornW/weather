@@ -6,7 +6,7 @@ function Search() {
 
     return (
         <input type="text" placeholder='Search...'
-            className='my-10 p-2 rounded-lg focus:outline-none w-1/2'
+            className='my-10 p-2 rounded-lg border border-slate-200 focus:outline-none w-1/2'
             value={search}
             onChange={(e) => setSearch(e.target.value)}
         />

@@ -33,7 +33,7 @@ function Header() {
 
     return (
 
-        <header className='flex flex-col m-10 '>
+        <header className='mt-10 mx-auto sm:mx-10 text-center sm:text-start'>
             <p className='text-4xl font-bold'>{currentTime}</p>
             <p className='text-lg font-medium'>{currentDate}</p>
         </header>

@@ -10,7 +10,6 @@ function WeatherProvider({ children }) {
 
     const [search, setSearch] = useState("yasothon")
 
-    console.log(forecast);
 
 
 
