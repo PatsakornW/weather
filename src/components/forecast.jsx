@@ -73,17 +73,17 @@ function Forecast() {
         <div className='flex-col rounded-2xl  p-6 shadow-lg bg-white'>
             <p className=' uppercase mb-5'>today's forecast</p>
             <Swiper
-                slidesPerView={4}
+                slidesPerView={3}
                 spaceBetween={10}
 
                 breakpoints={{
                     640: {
-                        slidesPerView: 2,
+                        slidesPerView: 3,
                         spaceBetween: 20,
                     },
                     768: {
                         slidesPerView: 4,
-                        spaceBetween: 40,
+                        spaceBetween: 20,
                     },
                     1024: {
                         slidesPerView: 8,

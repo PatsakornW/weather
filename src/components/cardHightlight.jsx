@@ -28,7 +28,7 @@ function CardHightlight() {
                         alt="wind"
                         className="w-10 h-10"
                     />
-                    <div className="flex sm:flex-col items-center justify-between w-full">
+                    <div className="flex sm:flex-col items-center lg:items-start justify-between w-full">
                         <p className="text-sm text-gray-400">Wind</p>
                         <p className="text-xl sm:text-2xl font-semibold text-gray-800">{current.wind?.speed.toFixed(1)} km/h</p>
                     </div>
@@ -39,7 +39,7 @@ function CardHightlight() {
                         alt="humidity"
                         className="w-10 h-10"
                     />
-                    <div className="flex sm:flex-col items-center justify-between w-full">
+                    <div className="flex sm:flex-col items-center lg:items-start justify-between w-full">
                         <p className="text-sm text-gray-400">Humidity</p>
                         <p className="text-xl sm:text-2xl font-semibold text-gray-800">{current.main?.humidity} %</p>
                     </div>
@@ -50,7 +50,7 @@ function CardHightlight() {
                         alt="visibility "
                         className="w-10 h-10"
                     />
-                    <div className="flex sm:flex-col items-center justify-between w-full">
+                    <div className="flex sm:flex-col items-center lg:items-start justify-between w-full">
                         <p className="text-sm text-gray-400">Visibility</p>
                         <p className="text-xl sm:text-2xl font-semibold text-gray-800">{(current.visibility / 1000).toFixed(1)} km</p>
                     </div>
@@ -61,7 +61,7 @@ function CardHightlight() {
                         alt="pressure "
                         className="w-10 h-10"
                     />
-                    <div className="flex sm:flex-col items-center justify-between w-full">
+                    <div className="flex sm:flex-col items-center lg:items-start justify-between w-full">
                         <p className="text-sm text-gray-400">Pressure</p>
                         <p className="text-xl sm:text-2xl font-semibold text-gray-800">{(current.main?.pressure * 0.029529983071).toFixed(1)} InHg</p>
                     </div>
@@ -72,7 +72,7 @@ function CardHightlight() {
                         alt="sunrise "
                         className="w-10 h-10"
                     />
-                    <div className="flex sm:flex-col items-center justify-between w-full">
+                    <div className="flex sm:flex-col items-center lg:items-start justify-between w-full">
                         <p className="text-sm text-gray-400">Sunrise</p>
                         <p className="text-xl  sm:text-2xl font-semibold text-gray-800">{convertTimestampToTime(current.sys?.sunrise)}</p>
                     </div>
@@ -83,7 +83,7 @@ function CardHightlight() {
                         alt="sunset "
                         className="w-10 h-10"
                     />
-                    <div className="flex sm:flex-col items-center justify-between w-full">
+                    <div className="flex sm:flex-col items-center lg:items-start justify-between w-full">
                         <p className="text-sm text-gray-400">Sunset</p>
                         <p className="text-xl sm:text-2xl font-semibold text-gray-800">{convertTimestampToTime(current.sys?.sunset)}</p>
                     </div>

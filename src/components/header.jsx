@@ -34,8 +34,8 @@ function Header() {
     return (
 
         <header className='mt-10 mx-auto sm:mx-10 text-center sm:text-start'>
-            <p className='text-4xl font-bold'>{currentTime}</p>
-            <p className='text-lg font-medium'>{currentDate}</p>
+            <p className='text-6xl font-bold text-sky-500 tracking-wider'>{currentTime}</p>
+            <p className='text-lg font-medium text-gray-700'>{currentDate}</p>
         </header>
     )
 }
